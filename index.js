@@ -13,3 +13,19 @@ const sum = foo.reduce((prev, curr, index)=>{
 }, 0);
 
 console.log(sum);
+
+// Segregation
+// We can group a certain set of values depending on our requirements.
+const arr = [1.1, 1.2, 1.3, 2.2, 2.3, 2.4];
+
+const output = arr.reduce((prev, curr, index, arr)=>{
+    const flored = Math.floor(curr);
+    if(flored in prev){
+        prev[flored].push(curr);
+    } else {
+        prev[flored] = [curr];
+    }
+    return prev;
+}, {});
+
+console.log('out',output);
